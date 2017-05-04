@@ -24,7 +24,10 @@ SECRET_KEY = '7b2@a4cx(9v589_k)=9!pvp7j_!!&ak=sr5u$i3vev-_h1pfs!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '192.168.38.1',
+    'localhost'
+]
 
 # Application definition
 
@@ -66,7 +69,7 @@ REST_FRAMEWORK = {
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['hmm_web/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,6 +78,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'timetags': 'hmm_web.templatetags.timetags',
+                'decode_uri': 'hmm_web.templatetags.decode_uri'
+            }
         },
     },
 ]
@@ -126,6 +133,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-
-MOD_SERCURITY_CONF = 'E:\projects\python\hmm_web\modsec_conf\hmmweb.conf'
 MODEL_PATH = r'E:\projects\python\hmm_web\hmm_web\hmm_model\model_file'

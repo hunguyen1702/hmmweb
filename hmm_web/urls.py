@@ -18,11 +18,9 @@ from django.contrib import admin
 from view.request import RequestViewSet
 from rest_framework import routers
 
-
 router = routers.DefaultRouter()
 router.register(r'requests', RequestViewSet)
 admin.autodiscover()
-
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
